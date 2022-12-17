@@ -1,0 +1,35 @@
+{% extends '_base.html' %}
+{% block page_title %} Blog {% endblock page_title %}
+{% block container-fluid %}
+    <h3 class="my-3 mt-3 text-white fst-italic text-center">Welcome to my Blog</h3>
+    <p class="text-white fst-italic text-center">I share my studies and experience here</p>
+{% endblock container-fluid %}
+
+{% block content %}
+
+
+
+    <div class="col-md-8">
+        {% for post in posts_list %}
+            <div class="card shadow my-3">
+
+                {#                        <div class="card-header">#}
+                {#                            <h3 class="card-title fst-italic text-center">{{ post.title }}</h3>#}
+                {#                        </div>#}
+                <div class="card-body">
+                    <h3 class="card-title fst-italic text-center">{{ post.title }}</h3>
+                    <h4 class="card-subtitle mb-2 text-muted small py-1">By: {{ post.author }}</h4>
+                    <p class="card-text py-3">
+                        {{ post.text }}
+                    </p>
+{#                    <a href="/blog/{{ post.id }}" class="btn btn-sm btn-dark">Read More</a> instead of this use below line#}
+                    <a href="{% url 'post_detail' post.id %}" class="btn btn-sm btn-dark">Read More</a>
+
+                </div>
+
+            </div>
+        {% endfor %}
+    </div>
+
+
+{% endblock content %}

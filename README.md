@@ -1,0 +1,1 @@
+This is a simple Django project. I create a blog app and define URLs, models, admin page. In this app, you can share a post. For frontend side I used HTML and Bootstrap.

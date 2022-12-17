@@ -1,0 +1,59 @@
+{% extends '_base.html' %}
+{% block page_title %}
+    Post Detail
+{% endblock page_title %}
+
+{% block container-fluid %}
+    <h3 class="my-3 mt-3 text-white fst-italic text-center">Welcome to my Blog</h3>
+    <p class="text-white fst-italic text-center">I share my studies and experience here</p>
+{% endblock container-fluid %}
+
+{% block content %}
+    <div class="col-md-8">
+        <div class="card shadow my-3 p-3">
+            <div class="card-title">
+                <h3 class="card-title fst-italic text-center">{{ post.title }}</h3>
+            </div>
+            <div class="card-body">
+                <h4 class="card-subtitle mb-2 text-muted small py-1">By: {{ post.author }}<br>Last
+                    Modified: {{ post.datetime_modified }}</h4>
+                <p class="card-text py-3">
+                    {{ post.text }}
+                </p>
+            </div>
+        </div>
+        <div class="card shadow my-3 p-3">
+            <div class="card-title">
+                <h3 class="card-title fst-italic text-center">comments</h3>
+            </div>
+            <div class="card-body">
+                <p class="card-text py-3">
+                    No comments yet! Be the first one.
+                </p>
+            </div>
+        </div>
+        <div class="card shadow my-3 p-3">
+            <div class="card-title">
+                <h3 class="card-title fst-italic text-center">Add new comment</h3>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    <div class="form-group py-2">
+                        <label class="py-1" for="author_name">Enter your name:</label>
+                        <input type="text" class="form-control" placeholder="e.g. John Doe" name="author_name">
+                    </div>
+                    <div class="form-group py-2">
+                        <label class="py-1" for="email">Your Email:</label>
+                        <input type="email" class="form-control" placeholder="example@gmail.com" name="email">
+                    </div>
+                    <div class="form-group py-2">
+                        <label class="py-1" for="comment_text">Comment text:</label>
+                        <textarea class="form-control" name="text" rows="3"
+                                  placeholder="Enter your comment text here..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-dark">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
